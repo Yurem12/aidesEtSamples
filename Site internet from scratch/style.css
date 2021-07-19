@@ -1,0 +1,29 @@
+/*Fichier de style d'une page HTML/PHP*/
+
+    /*Design type responsive*/
+
+        /*design mobile*/
+
+        @media all and (orientation:portrait) {
+            #navbar {
+                overflow: hidden;
+                background-color: rgb(224, 0, 0);
+                position: fixed;
+                width: 100%;
+                opacity: 0.9;
+                top: 0;
+            }
+        }
+        
+        /*design tablette/ordi en paysage*/
+
+        @media all and (orientation:landscape) {
+            #navbar {
+                overflow: hidden;
+                background-color: crimson;
+                position: fixed;
+                width: 100%;
+                opacity: 0.9;
+                top: 0;
+            }
+        }
