@@ -1,3 +1,5 @@
+const { get } = require('https');
+
 module.exports = {
     name: "neko",
     aliases: ["n"],
@@ -9,20 +11,42 @@ module.exports = {
     cooldown: 5,
     usage: "<usage>",
     execute(message, args) {
-        if (args[0] === 'help') return message.channel.send({
+        var requete = args[0];
+        if (args[0] === 'lewd') {
+            var requete = 'nekolewd';
+        }
+        if (requete === 'help') return message.channel.send({
             embed: {
-                Title: {
-                    text: 'Réponse a la commande help'
-                }
-            }
-        });
-        if (!message.channel.nsfw)return message.channel.send('Veuillez exécuter cette commande dans un channel nsfw.');
+                title:
+                    'Réponse a la commande help',
+                description: 
+                    `Les différentes commandes sont : 
+                    -neko
+                    -kitsune
+                    -hug
+                    -pat
+                    -waifu
+                    -cry
+                    -kiss
+                    -slap 
+                    pour les commandes safes, et:
+                    -lewd
+                    pour les NSFW.`,
+                color: 
+                    'RANDOM'
+                },
 
-        get("https://neko-love.xyz/api/v1/" + args[1], (res) => {
+            });
+        if (!message.channel.nsfw)return message.channel.send('Veuillez exécuter cette commande dans un channel nsfw.');
+        get("https://neko-love.xyz/api/v1/" + requete, (res) => {
             const { statusCode } = res;
-            if (statusCode !== 200) {
-                return message.channel.send("Votre demande n'existe pas veuillez effectué la commande ?neko help pour obtenir la liste des possiblilitées.."); 
-            }
+            if (statusCode !== 200)
+                return message.channel.send({
+                    embed: {
+                        title:'échec de la commande',
+                    
+                    description:`Votre demande n'existe pas veuillez effectué la commande ${config.prefix}neko help pour obtenir la liste des possiblilitées..`
+                }});
     
             res.setEncoding("utf8");
             let rawData = "";
@@ -41,8 +65,9 @@ module.exports = {
                                 url: parsedData.url
                             },
                             footer: {
-                                text: `<@${message.author.id}>`
-                            }
+                                text: `${message.author}`
+                            },
+                            color: 'RANDOM'
                         }
                     });
                 } catch (error) {

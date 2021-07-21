@@ -5,6 +5,8 @@ const fs = require('fs');
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 
+bot.login(config.token);
+
 // Take commands
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
