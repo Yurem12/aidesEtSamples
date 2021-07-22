@@ -1,5 +1,8 @@
 const Discord = require('discord.js');
 const config = require('./config.json');
+//The const token only is here to protect my bot token from mad peoples, if you are doing programmation in a private repository or if your bot is only on your disk this line isn't useful
+const token = require('C:/Users/yurem/Documents/code/token.json');
+
 const fs = require('fs');
 
 const bot = new Discord.Client();
@@ -18,8 +21,15 @@ for (const file of commandFiles) {
 const cooldowns = new Discord.Collection();
 
 // On Ready
-bot.once('ready', () => {
+bot.on('ready', () => {
     console.log('Ready!');
+    bot.user.setPresence({
+        status: "online",
+        game: {
+          name: `${config.prefix}help`,
+          type: "STREAMING"
+        }
+    })
 });
 
 // On Message
