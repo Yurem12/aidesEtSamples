@@ -1,14 +1,14 @@
 const Discord = require('discord.js');
 const config = require('./config.json');
 //The const token only is here to protect my bot token from mad peoples, if you are doing programmation in a private repository or if your bot is only on your disk this line isn't useful
-const token = require('C:/Users/yurem/Documents/code/token.json');
+const tokens = require('C:/Users/yurem/Documents/code/token.json');
 
 const fs = require('fs');
 
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 
-bot.login(config.token);
+bot.login(tokens.token);
 
 // Take commands
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));

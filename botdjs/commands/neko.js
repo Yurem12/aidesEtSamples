@@ -20,7 +20,7 @@ module.exports = {
                 title:
                     'Réponse a la commande help',
                 description: 
-                    `Les différentes commandes sont : 
+                    `Les différentes commandes safes sont : 
                     -neko
                     -kitsune
                     -hug
@@ -29,9 +29,9 @@ module.exports = {
                     -cry
                     -kiss
                     -slap 
-                    pour les commandes safes, et:
+                    et pour les NSFW:
                     -lewd
-                    pour les NSFW.`,
+                    `,
                 color: 
                     'RANDOM'
                 },
