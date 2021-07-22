@@ -65,7 +65,7 @@ module.exports = {
                                 url: parsedData.url
                             },
                             footer: {
-                                text: `${message.author}`
+                                text: `${message.author.username}`
                             },
                             color: 'RANDOM'
                         }
