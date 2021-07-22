@@ -40,6 +40,7 @@ bot.on('message', message => {
     const commandName = args.shift().toLowerCase();
 
     const command = bot.commands.get(commandName) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+    const contentA = require(`./commands/${commandName}`);
 
     // If command exist
     if (!command) return;
