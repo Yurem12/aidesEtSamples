@@ -1,14 +1,20 @@
 module.exports = {
     name: "kick",
-    description: "permet de kick a un membre ayant la permission",
+    aliases: ["k"],
+    description: "kick un membre",
+    category: "category",
     guildOnly: true,
-
+    memberpermissions:"KICK_MEMBER",
     adminPermOverride: true,
     cooldown: 2,
-
+    args: args,
     usage: "<usage>",
     execute(message, args) {
-        const chanlog = message.guild.channels.cache.get('854120834074279937');
+        let member = message.mentions.members.first();
+        guild.member.kick(member).then((member) => {
+            var msgcontent = `L'utilisateur ${member.username} a bien été kick par ${message.author.username}.`;
+            var logs = `${message.author.username} a kick ${member.username}.`
+            const chanlog = message.guild.channels.cache.get('801835792674062357');
         var réponse = new Discord.MessageEmbed()
         .setTitle('Yurem\'s Discord Bot')
         .setDescription(`**Réponse a la requête de <@${message.author.id}>**
@@ -33,5 +39,6 @@ module.exports = {
             message.channel.send(réponse);
             chanlog.send(msglog);
         }
-    },
-};
+        })
+    }
+    }

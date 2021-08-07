@@ -7,6 +7,7 @@ module.exports = {
     memberpermissions:"MANAGE_WEBHOOKS",
     adminPermOverride: true,
     cooldown: 10,
+    usage: `/restart`,
     async execute(message) {
         if(message.author.id === !message.guild.ownerID)return message.reply('Tu ne peux pas executer cette commande.');
         await message.channel.send('Le bot redémarre.')
