@@ -7,7 +7,6 @@ module.exports = {
     memberpermissions:"KICK_MEMBER",
     adminPermOverride: true,
     cooldown: 2,
-    args: args,
     usage: "<usage>",
     execute(message, args) {
         let member = message.mentions.members.first();
